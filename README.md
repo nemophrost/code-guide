@@ -28,6 +28,11 @@ Standards for developing flexible, durable, and sustainable HTML and CSS.
         * [Classes](#classes)
         * [Selectors](#selectors)
     * [Organization](#organization)
+* [Utility suffix definitions](#utility-suffix-definitions)
+    * [Wrapper](#wrapper)
+    * [Container](#container)
+    * [Sidebar and Content](#sidebar-and-content)
+    * [Header, Footer, and Body](#header-footer-and-body)
 * [Writing copy](#copy)
     * [Sentence case](#sentence-case)
 
@@ -358,7 +363,7 @@ span { ... }
 
 
 
-## Standard utlity suffix definitions
+## Utility suffix definitions
 
 ### Wrapper
 
@@ -416,7 +421,7 @@ Use the -sidebar and -content suffixes when you need to have a section on the ri
 ````
 
 
-### Header, Body, Footer
+### Header, Body, and Footer
 
 Use the -header, -body, and -footer suffixes when you need to split up content into vertically stacking sections.
 
