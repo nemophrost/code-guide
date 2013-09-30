@@ -32,7 +32,7 @@ Standards for developing flexible, durable, and sustainable HTML and CSS.
     * [Wrapper](#wrapper)
     * [Container](#container)
     * [Sidebar and Content](#sidebar-and-content)
-    * [Header, Footer, and Body](#header-footer-and-body)
+    * [Header, Body, and Footer](#header-body-and-footer)
 * [Writing copy](#copy)
     * [Sentence case](#sentence-case)
 
