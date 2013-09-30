@@ -221,16 +221,16 @@ Related declarations should be grouped together, placing positioning and box-mod
     width: 100px;
     height: 100px;
 
+    /* Visual */
+    background-color: #f5f5f5;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+
     /* Typography */
     font: normal 13px "Helvetica Neue", sans-serif;
     line-height: 1.5;
     color: #333;
     text-align: center;
-
-    /* Visual */
-    background-color: #f5f5f5;
-    border: 1px solid #e5e5e5;
-    border-radius: 3px;
 
     /* Misc */
     opacity: 1;
@@ -251,8 +251,8 @@ When using vendor prefixed properties, indent each property such that the value 
 ````css
 .selector {
     -webkit-border-radius: 3px;
-         -moz-border-radius: 3px;
-                    border-radius: 3px;
+       -moz-border-radius: 3px;
+            border-radius: 3px;
 }
 ````
 
@@ -369,8 +369,6 @@ span { ... }
 
 Use the -wrapper suffix when an element contains the main component element and optionally one or more different but related children. Typically, wrappers are used to help position the main component and other related elements when it doesn't make sense for the related elements to be children of the main component.
 
-**Example:**
-
 ````html
 <div class="timeline-wrapper">
     <div class="timeline"></div>
@@ -382,8 +380,6 @@ Use the -wrapper suffix when an element contains the main component element and 
 ### Container
 
 Use the -container suffix when an element contains one or more similar or identical children and it needs to be differentiated from the main component. Think of containers being like a <ul> or <ol> tag, where each child is the same basic type of element. Usually, the container's class should be the base class of it's children with -container appended to it. Do not simply pluralize the class of the children as it makes reading your stylsheets more difficult.
-
-**Example:**
 
 ````html
 <div class="timeline-wrapper">
@@ -404,8 +400,6 @@ Use the -container suffix when an element contains one or more similar or identi
 
 Use the -sidebar and -content suffixes when you need to have a section on the right or left such as navigation or secondary content. Use these two as a pair.
 
-**Example:**
-
 ````html
 <div class="foo-sidebar">
     <ul>
@@ -424,8 +418,6 @@ Use the -sidebar and -content suffixes when you need to have a section on the ri
 ### Header, Body, and Footer
 
 Use the -header, -body, and -footer suffixes when you need to split up content into vertically stacking sections.
-
-**Example:**
 
 ````html
 <header class="page-header">
