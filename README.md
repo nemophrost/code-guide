@@ -379,7 +379,7 @@ Use the -wrapper suffix when an element contains the main component element and 
 
 ### Container
 
-Use the -container suffix when an element contains one or more similar or identical children and it needs to be differentiated from the main component. Think of containers being like a <ul> or <ol> tag, where each child is the same basic type of element. Usually, the container's class should be the base class of it's children with -container appended to it. Do not simply pluralize the class of the children as it makes reading your stylsheets more difficult.
+Use the -container suffix when an element contains one or more similar or identical children and it needs to be differentiated from the main component. Think of containers being like a `<ul>` or `<ol>` tag, where each child is the same basic type of element. Usually, the container's class should be the base class of it's children with -container appended to it. Do not simply pluralize the class of the children as it makes reading your stylsheets more difficult.
 
 ````html
 <div class="timeline-wrapper">
