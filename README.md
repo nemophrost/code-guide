@@ -1,5 +1,5 @@
-# HTML and CSS code guide
-Standards for developing flexible, durable, and sustainable HTML and CSS.
+# HTML, CSS, and LESS code guide
+Standards for developing flexible, durable, and sustainable HTML, CSS, and LESS.
 
 
 
@@ -28,9 +28,13 @@ Standards for developing flexible, durable, and sustainable HTML and CSS.
         * [Classes](#classes)
         * [Selectors](#selectors)
     * [Organization](#organization)
+* [LESS](#less)
+    * [File naming and directory structure](#file-naming-and-directory-structure)
+    * [Variable and Mixins](#variables-and-mixins)
+    * [Standard variable and mixin abbreviations](#standard-variable-and-mixin-abbreviations)
 * [Utility suffix definitions](#utility-suffix-definitions)
-    * [Wrapper](#wrapper)
     * [Container](#container)
+    * [Wrapper](#wrapper)
     * [Sidebar and Content](#sidebar-and-content)
     * [Header, Body, and Footer](#header-body-and-footer)
 * [Writing copy](#copy)
@@ -160,7 +164,7 @@ Writing markup in a javascript file makes the content harder to find, harder to 
 
 ### CSS syntax
 
-* Use hard-tabs
+* Use hard-tabs for indentation and spaces for alignment
 * When grouping selectors, keep individual selectors to a single line
 * Include one space before the opening brace of declaration blocks
 * Place closing braces of declaration blocks on a new line
@@ -246,7 +250,7 @@ In some cases, it makes sense to deviate slightly from the default [syntax](#css
 
 #### Prefixed properties
 
-When using vendor prefixed properties, indent each property such that the value lines up vertically for easy multi-line editing.
+When using vendor prefixed properties, indent (with spaces) each property such that the value lines up vertically for easy multi-line editing.
 
 ````css
 .selector {
@@ -256,7 +260,8 @@ When using vendor prefixed properties, indent each property such that the value 
 }
 ````
 
-In Textmate, use **Text &rarr; Edit Each Line in Selection** (&#8963;&#8984;A). In Sublime Text 2, use **Selection &rarr; Add Previous Line** (&#8963;&#8679;&uarr;) and **Selection &rarr;  Add Next Line** (&#8963;&#8679;&darr;).
+In Textmate, use **Text &rarr; Edit Each Line in Selection** (&#8963;&#8984;A).
+In Sublime Text 2, use **Selection &rarr; Add Previous Line** (&#8963;&#8679;&uarr;) and **Selection &rarr;  Add Next Line** (&#8963;&#8679;&darr;).
 
 #### Rules with single declarations
 
@@ -316,18 +321,20 @@ Great code comments convey context or purpose and should not just reiterate a co
 **Bad example:**
 
 ````css
-.t { ... }
-.red { ... }
-.header { ... }
+.t { ... } /* arbitrary shorthand */
+.red { ... } /* presentational */
+.header { ... } /* not prefixed, too generic */
 ````
 
 **Good example:**
 
 ````css
 .tweet { ... }
-.important { ... }
-.tweet-header { ... }
+.important { ... } /* purposeful */
+.tweet-header { ... } /* prefixed */
 ````
+
+Some class names are acceptable
 
 #### Selectors
 
@@ -363,7 +370,81 @@ span { ... }
 
 
 
+## LESS
+
+### File naming and directory structure
+
+* Create a separate file for each component
+* If a set of small and closely related components make sense, they can be combined into one file
+* Prefix all files that are only used as imports with an underscore
+* Keep all mixins together in one place
+* Keep variables in a single file for each project
+
+### Variables and mixins
+
+* Keep variable and mixin names lowercase and use dashes (not underscores or camelCase)
+* Whan naming variables that are tied directly to HTML components, use the following order:
+    * class name
+    * state (hover, disabled, active, etc.)
+    * css property
+    * css sub-property (if applicable)
+
+**Incorrect example:**
+
+````css
+@dlgWrap-shadowOnHover: #f00;
+````
+
+**Correct example:**
+
+````css
+@dialog-wrapper-hover-box-shadow-color: #f00;
+````
+
+### Standard variable and mixin abbreviations
+
+* bg - background
+* xs - extra small
+* sm - small
+* md - medium
+* lg - large
+* xl - extra large
+
+
+
+----------
+
+
+
 ## Utility suffix definitions
+
+### Container
+
+Use the -container suffix when an element contains one or more similar or identical children and it needs to be differentiated from the main component. Think of containers being like a `<ul>` or `<ol>` tag, where each child is the same basic type of element. Usually, the container's class should be the base class of it's children with -container appended to it. Do not simply pluralize the base class as it makes reading your stylsheets more difficult.
+
+````html
+<div class="timeline-container">
+    <div class="timeline">...</div>
+    <div class="timeline timeline-selected">...</div>
+    <div class="timeline">...</div>
+    <div class="timeline">...</div>
+</div>
+````
+
+Alternately, containers can have wrappers with the same base class.
+
+````html
+<div class="timeline-container">
+    <div class="timeline-wrapper">
+        <div class="timeline">...</div>
+        <div class="timeline-controls">...</div>
+    </div>
+    <div class="timeline-wrapper">...</div>
+    <div class="timeline-wrapper">...</div>
+</div>
+</div>
+````
+
 
 ### Wrapper
 
@@ -371,27 +452,8 @@ Use the -wrapper suffix when an element contains the main component element and 
 
 ````html
 <div class="timeline-wrapper">
-    <div class="timeline"></div>
-    <div class="timeline-controls"></div>
-</div>
-````
-
-
-### Container
-
-Use the -container suffix when an element contains one or more similar or identical children and it needs to be differentiated from the main component. Think of containers being like a `<ul>` or `<ol>` tag, where each child is the same basic type of element. Usually, the container's class should be the base class of it's children with -container appended to it. Do not simply pluralize the class of the children as it makes reading your stylsheets more difficult.
-
-````html
-<div class="timeline-wrapper">
-    <div class="timeline">
-        <div class="timeline-event-container">
-            <div class="timeline-event"></div>
-            <div class="timeline-event" class="selected"></div>
-            <div class="timeline-event"></div>
-            <div class="timeline-event"></div>
-        </div>
-    </div>
-    <div class="timeline-controls"></div>
+    <div class="timeline">...</div>
+    <div class="timeline-controls">...</div>
 </div>
 ````
 
