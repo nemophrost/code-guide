@@ -376,9 +376,9 @@ span { ... }
 
 * Create a separate file for each component
 * If a set of small and closely related components make sense, they can be combined into one file
-* Prefix all files that are only used as imports with an underscore
+* Prefix all files that are not compiled (imports) with an underscore
 * Keep all mixins together in one place
-* Keep variables in a single file for each project
+* Keep variables in as few files as possible (prefer one or less for each compiled file)
 
 ### Variables and mixins
 
@@ -389,13 +389,13 @@ span { ... }
     * css property
     * css sub-property (if applicable)
 
-**Incorrect example:**
+**Bad example:**
 
 ````css
 @dlgWrap-shadowOnHover: #f00;
 ````
 
-**Correct example:**
+**Good example:**
 
 ````css
 @dialog-wrapper-hover-box-shadow-color: #f00;
